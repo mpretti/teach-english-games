@@ -7,7 +7,7 @@ interface DutchBlitzGrammarExerciseProps {
   language: 'en' | 'ko';
 }
 
-const DutchBlitzGrammarExercise: React.FC<DutchBlitzGrammarExerciseProps> = ({
+const DutchBlitzGrammarExerciseComponent: React.FC<DutchBlitzGrammarExerciseProps> = ({
   exercise,
   onAnswer,
   language
@@ -122,4 +122,4 @@ const DutchBlitzGrammarExercise: React.FC<DutchBlitzGrammarExerciseProps> = ({
   );
 };
 
-export default DutchBlitzGrammarExercise; 
+export default DutchBlitzGrammarExerciseComponent; 

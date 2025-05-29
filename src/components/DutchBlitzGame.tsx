@@ -2,8 +2,8 @@ import React, { useState, useEffect, useCallback } from 'react';
 import type { DutchBlitzGameState } from '../types/dutchBlitzGame';
 import { initializeDutchBlitzGame, playCard, drawFromDutch, startTimer, updateTimer, getRandomCommand } from '../utils/dutchBlitzUtils';
 import { DUTCH_BLITZ_GRAMMAR_EXERCISES } from '../data/dutchBlitzData';
-import DutchBlitzCardComponent from './DutchBlitzCard';
-import DutchBlitzGrammarExerciseComponent from './DutchBlitzGrammarExercise';
+import DutchBlitzCardComponent from './DutchBlitzCard.tsx';
+import DutchBlitzGrammarExerciseComponent from './DutchBlitzGrammarExercise.tsx';
 
 interface DutchBlitzGameProps {
   difficulty: 'easy' | 'medium' | 'hard';
@@ -247,11 +247,11 @@ const DutchBlitzGame: React.FC<DutchBlitzGameProps> = ({ difficulty, language, o
                       className="min-h-24 border-2 border-dashed border-white border-opacity-50 rounded-lg flex items-center justify-center cursor-pointer hover:bg-white hover:bg-opacity-10"
                       onClick={() => selectedCard && handlePlayCard('post', index)}
                     >
-                      {pile.length > 0 ? (
+                      {pile.length > 0 && pile[pile.length - 1] ? (
                         <DutchBlitzCardComponent
-                          card={pile[pile.length - 1]}
-                          onClick={() => handleCardClick(pile[pile.length - 1].id)}
-                          isSelected={selectedCard === pile[pile.length - 1].id}
+                          card={pile[pile.length - 1]!}
+                          onClick={() => handleCardClick(pile[pile.length - 1]!.id)}
+                          isSelected={selectedCard === pile[pile.length - 1]!.id}
                         />
                       ) : (
                         <div className="text-white text-opacity-50">Empty</div>

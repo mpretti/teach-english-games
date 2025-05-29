@@ -2,8 +2,8 @@ import React, { useState, useCallback } from 'react';
 import type { ManhattanGameState } from '../types/manhattanGame';
 import { initializeManhattanGame, placeBuilding, canAffordBuilding, buyResources, getAvailableSuperlatives } from '../utils/manhattanUtils';
 import { MANHATTAN_GRAMMAR_EXERCISES } from '../data/manhattanData';
-import ManhattanBuildingCard from './ManhattanBuildingCard';
-import ManhattanGrammarExercise from './ManhattanGrammarExercise';
+import ManhattanBuildingCard from './ManhattanBuildingCard.tsx';
+import ManhattanGrammarExerciseComponent from './ManhattanGrammarExercise.tsx';
 
 interface ManhattanGameProps {
   difficulty: 'easy' | 'medium' | 'hard';
@@ -109,7 +109,7 @@ const ManhattanGame: React.FC<ManhattanGameProps> = ({ difficulty, language, onG
               Round {gameState.round} | Score: {gameState.score.total}
             </div>
           </div>
-          <ManhattanGrammarExercise
+          <ManhattanGrammarExerciseComponent
             exercise={exercise}
             onAnswer={handleGrammarAnswer}
             language={language}

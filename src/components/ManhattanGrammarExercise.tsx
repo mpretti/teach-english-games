@@ -7,7 +7,7 @@ interface ManhattanGrammarExerciseProps {
   language: 'en' | 'ko';
 }
 
-const ManhattanGrammarExercise: React.FC<ManhattanGrammarExerciseProps> = ({
+const ManhattanGrammarExerciseComponent: React.FC<ManhattanGrammarExerciseProps> = ({
   exercise,
   onAnswer,
   language
@@ -144,4 +144,4 @@ const ManhattanGrammarExercise: React.FC<ManhattanGrammarExerciseProps> = ({
   );
 };
 
-export default ManhattanGrammarExercise; 
+export default ManhattanGrammarExerciseComponent; 

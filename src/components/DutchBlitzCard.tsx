@@ -8,7 +8,7 @@ interface DutchBlitzCardProps {
   showBack?: boolean;
 }
 
-const DutchBlitzCard: React.FC<DutchBlitzCardProps> = ({ 
+const DutchBlitzCardComponent: React.FC<DutchBlitzCardProps> = ({ 
   card, 
   onClick, 
   isSelected = false,
@@ -55,4 +55,4 @@ const DutchBlitzCard: React.FC<DutchBlitzCardProps> = ({
   );
 };
 
-export default DutchBlitzCard; 
+export default DutchBlitzCardComponent; 

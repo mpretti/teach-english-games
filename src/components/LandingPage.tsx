@@ -165,6 +165,46 @@ const games: Game[] = [
     emoji: '🏙️',
     color: 'from-yellow-400 to-orange-600',
     available: true
+  },
+  {
+    id: 'taco-cat',
+    title: 'Taco Cat Goat Cheese Pizza',
+    titleKorean: '타코 캣 고트 치즈 피자',
+    theme: 'Fast pattern matching game with English vocabulary',
+    themeKorean: '영어 어휘를 활용한 빠른 패턴 매칭 게임',
+    description: 'Match words to pictures and sounds in this fast-paced pattern recognition game that improves English fluency.',
+    descriptionKorean: '빠른 패턴 인식 게임에서 단어를 그림과 소리에 맞춰 영어 유창성을 향상시키세요.',
+    skills: ['Vocabulary', 'Pattern Recognition', 'Quick Thinking', 'Listening'],
+    skillsKorean: ['어휘', '패턴 인식', '빠른 사고', '듣기'],
+    vocabulary: ['taco', 'cat', 'goat', 'cheese', 'pizza', 'gorilla', 'groundhog', 'narwhal'],
+    grammar: ['Simple past tense', 'Expressing accomplishments', 'Quick responses'],
+    difficulty: 'Easy',
+    difficultyKorean: '쉬움',
+    players: '2-8',
+    time: '10-15 min',
+    emoji: '🌮',
+    color: 'from-orange-400 to-red-600',
+    available: true
+  },
+  {
+    id: 'no-mercy',
+    title: 'No Mercy',
+    titleKorean: '노 머시',
+    theme: 'Western-themed risk management game',
+    themeKorean: '서부 테마의 위험 관리 게임',
+    description: 'Recruit Western characters while managing risk in this probability-based card game that teaches decision making.',
+    descriptionKorean: '의사결정을 가르치는 확률 기반 카드 게임에서 위험을 관리하며 서부 캐릭터를 모집하세요.',
+    skills: ['Risk Management', 'Probability', 'Decision Making', 'Present Continuous'],
+    skillsKorean: ['위험 관리', '확률', '의사결정', '현재진행형'],
+    vocabulary: ['banking', 'stopping', 'stealing', 'sheriff', 'outlaw', 'deputy', 'bandit', 'renegade'],
+    grammar: ['Present continuous tense', 'Declarative statements', 'Expressing cessation'],
+    difficulty: 'Medium',
+    difficultyKorean: '보통',
+    players: '2-6',
+    time: '20-30 min',
+    emoji: '🤠',
+    color: 'from-amber-400 to-orange-600',
+    available: true
   }
 ];
 
@@ -179,7 +219,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGameSelect }) => {
       const key = event.key;
       
       // Prevent default behavior for our game keys
-      if (['1', '2', '3', '4', '5', '6'].includes(key)) {
+      if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'].includes(key)) {
         event.preventDefault();
       }
 
@@ -208,7 +248,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGameSelect }) => {
             <p className="text-gray-500 mt-2">Interactive games designed to help Korean students learn English through play</p>
             <div className="mt-4 bg-indigo-50 rounded-lg p-3 max-w-md mx-auto">
               <p className="text-sm text-indigo-700 font-medium">⌨️ Keyboard Shortcuts:</p>
-              <p className="text-xs text-indigo-600">Press <kbd className="bg-indigo-200 px-1 rounded">1</kbd> <kbd className="bg-indigo-200 px-1 rounded">2</kbd> <kbd className="bg-indigo-200 px-1 rounded">3</kbd> <kbd className="bg-indigo-200 px-1 rounded">4</kbd> to select games</p>
+              <p className="text-xs text-indigo-600">Press <kbd className="bg-indigo-200 px-1 rounded">1</kbd>-<kbd className="bg-indigo-200 px-1 rounded">0</kbd> to select games</p>
             </div>
           </div>
         </div>

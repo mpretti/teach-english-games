@@ -8,6 +8,8 @@ import { TwinItGame } from './components/TwinItGame';
 import { ScotlandYardGame } from './components/ScotlandYardGame';
 import DutchBlitzGame from './components/DutchBlitzGame';
 import ManhattanGame from './components/ManhattanGame';
+import { TacoCatGame } from './components/TacoCatGame';
+import { NoMercyGame } from './components/NoMercyGame';
 
 function App() {
   const [currentGame, setCurrentGame] = useState<string | null>(null);
@@ -82,6 +84,14 @@ function App() {
 
   if (currentGame === 'manhattan') {
     return <ManhattanGame difficulty="medium" language="en" onGameEnd={handleBackToHome} />;
+  }
+
+  if (currentGame === 'taco-cat') {
+    return <TacoCatGame onBack={handleBackToHome} />;
+  }
+
+  if (currentGame === 'no-mercy') {
+    return <NoMercyGame onBack={handleBackToHome} />;
   }
 
   return <LandingPage onGameSelect={handleGameSelect} />;
