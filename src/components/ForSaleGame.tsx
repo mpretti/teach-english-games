@@ -35,6 +35,58 @@ export const ForSaleGame: React.FC = () => {
     }
   }, []);
 
+  // Keyboard event handler
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      const key = event.key.toLowerCase();
+      
+      // Prevent default behavior for our game keys
+      if (['b', 'p', '1', '2', '3', '4', 'r'].includes(key)) {
+        event.preventDefault();
+      }
+
+      // Results phase - restart game
+      if (gameState.phase === 'results' && key === 'r') {
+        resetGame();
+        return;
+      }
+
+      // Grammar challenge phase
+      if (showGrammarChallenge) {
+        const currentExercise = grammarExercises[currentGrammarExercise];
+        if (currentExercise && ['1', '2', '3', '4'].includes(key)) {
+          const answerIndex = parseInt(key) - 1;
+          if (answerIndex >= 0 && answerIndex < currentExercise.options.length) {
+            const isCorrect = answerIndex === currentExercise.correctAnswer;
+            handleGrammarAnswer(isCorrect);
+          }
+        }
+        return;
+      }
+
+      // Auction phase
+      if (gameState.currentAuction && gameState.phase === 'auction') {
+        const player = gameState.players[0];
+        if (!player) return;
+
+        if (key === 'b') {
+          // Bid (minimum bid + 1k)
+          const currentBid = gameState.currentAuction.currentBid || gameState.currentAuction.property.minBid;
+          const bidAmount = currentBid + 1;
+          if (player.money >= bidAmount) {
+            handleBid(bidAmount);
+          }
+        } else if (key === 'p') {
+          // Pass
+          handlePass();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [gameState, showGrammarChallenge, currentGrammarExercise]);
+
   const handleBid = (amount: number) => {
     const player = gameState.players[0];
     if (!player) return;
@@ -199,6 +251,10 @@ export const ForSaleGame: React.FC = () => {
             >
               Play Again
             </button>
+            <div className="mt-4 bg-green-50 rounded-lg p-3 max-w-md mx-auto">
+              <p className="text-sm text-green-700 font-medium">⌨️ Keyboard Shortcut:</p>
+              <p className="text-xs text-green-600">Press <kbd className="bg-green-200 px-1 rounded">R</kbd> to restart</p>
+            </div>
           </div>
         </div>
       </div>
@@ -218,6 +274,10 @@ export const ForSaleGame: React.FC = () => {
             <p className="text-gray-500 mt-2">
               Exercise {currentGrammarExercise + 1} of {grammarExercises.length}
             </p>
+            <div className="mt-4 bg-purple-50 rounded-lg p-3 max-w-md mx-auto">
+              <p className="text-sm text-purple-700 font-medium">⌨️ Keyboard Shortcuts:</p>
+              <p className="text-xs text-purple-600">Press <kbd className="bg-purple-200 px-1 rounded">1</kbd> <kbd className="bg-purple-200 px-1 rounded">2</kbd> <kbd className="bg-purple-200 px-1 rounded">3</kbd> <kbd className="bg-purple-200 px-1 rounded">4</kbd> to answer</p>
+            </div>
           </div>
 
           <ForSaleGrammarExercise
@@ -237,6 +297,10 @@ export const ForSaleGame: React.FC = () => {
           <h1 className="text-4xl font-bold text-gray-800 mb-2">For Sale</h1>
           <p className="text-xl text-gray-600">부동산 포세일</p>
           <p className="text-gray-500 mt-2">Buy properties at auction and learn English!</p>
+          <div className="mt-4 bg-blue-50 rounded-lg p-3 max-w-md mx-auto">
+            <p className="text-sm text-blue-700 font-medium">⌨️ Keyboard Shortcuts:</p>
+            <p className="text-xs text-blue-600">Press <kbd className="bg-blue-200 px-1 rounded">B</kbd> to Bid • <kbd className="bg-blue-200 px-1 rounded">P</kbd> to Pass</p>
+          </div>
         </div>
 
         {/* Player Status */}

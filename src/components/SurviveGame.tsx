@@ -5,8 +5,6 @@ import type { SurviveGameState } from '../types/surviveGame';
 import { 
   initializeSurviveGame, 
   movePlayer, 
-  boardBoat, 
-  startSwimming,
   sinkIslandTiles,
   calculateSurvivalScore
 } from '../utils/surviveGameUtils';

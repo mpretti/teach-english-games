@@ -3,6 +3,11 @@ import { LandingPage } from './components/LandingPage';
 import { Game } from './components/Game';
 import { ForSaleGame } from './components/ForSaleGame';
 import { KitesGame } from './components/KitesGame';
+import { SurviveGame } from './components/SurviveGame';
+import { TwinItGame } from './components/TwinItGame';
+import { ScotlandYardGame } from './components/ScotlandYardGame';
+import DutchBlitzGame from './components/DutchBlitzGame';
+import ManhattanGame from './components/ManhattanGame';
 
 function App() {
   const [currentGame, setCurrentGame] = useState<string | null>(null);
@@ -55,8 +60,28 @@ function App() {
     );
   }
 
+  if (currentGame === 'survive') {
+    return <SurviveGame onBack={handleBackToHome} />;
+  }
+
   if (currentGame === 'kites') {
     return <KitesGame onBack={handleBackToHome} />;
+  }
+
+  if (currentGame === 'twin-it') {
+    return <TwinItGame onBack={handleBackToHome} />;
+  }
+
+  if (currentGame === 'scotland-yard') {
+    return <ScotlandYardGame onBack={handleBackToHome} />;
+  }
+
+  if (currentGame === 'dutch-blitz') {
+    return <DutchBlitzGame difficulty="medium" language="en" onGameEnd={handleBackToHome} />;
+  }
+
+  if (currentGame === 'manhattan') {
+    return <ManhattanGame difficulty="medium" language="en" onGameEnd={handleBackToHome} />;
   }
 
   return <LandingPage onGameSelect={handleGameSelect} />;

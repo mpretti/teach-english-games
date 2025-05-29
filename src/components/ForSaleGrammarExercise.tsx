@@ -57,9 +57,20 @@ export const ForSaleGrammarExercise: React.FC<ForSaleGrammarExerciseProps> = ({
             key={index}
             onClick={() => handleAnswerSelect(index)}
             disabled={showResult}
-            className={`w-full p-3 text-left rounded-lg border transition-colors duration-200 ${getButtonClass(index)}`}
+            className={`w-full p-3 text-left rounded-lg border transition-colors duration-200 ${getButtonClass(index)} flex items-center justify-between`}
           >
-            {option}
+            <span>{option}</span>
+            <kbd className={`ml-2 px-2 py-1 text-xs rounded ${
+              showResult 
+                ? index === exercise.correctAnswer 
+                  ? 'bg-green-600 text-white' 
+                  : index === selectedAnswer 
+                    ? 'bg-red-600 text-white'
+                    : 'bg-gray-300 text-gray-600'
+                : 'bg-blue-100 text-blue-700'
+            }`}>
+              {index + 1}
+            </kbd>
           </button>
         ))}
       </div>

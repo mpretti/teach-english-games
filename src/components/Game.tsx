@@ -58,8 +58,13 @@ export const Game: React.FC = () => {
     
     // Show grammar exercise after purchase
     if (exerciseQueue.length > 0) {
-      setCurrentExercise(exerciseQueue[0]);
-      setExerciseQueue(prev => prev.slice(1));
+      const nextExercise = exerciseQueue[0];
+      if (nextExercise) {
+        setCurrentExercise(nextExercise);
+        setExerciseQueue(prev => prev.slice(1));
+      } else {
+        setGameState(prev => ({ ...prev, gamePhase: 'cooking' }));
+      }
     } else {
       setGameState(prev => ({ ...prev, gamePhase: 'cooking' }));
     }

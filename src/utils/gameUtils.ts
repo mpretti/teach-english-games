@@ -22,8 +22,8 @@ export const makeSalad = (recipe: SaladRecipe, gameState: GameState): GameState 
   
   // Remove required vegetables from inventory
   recipe.requiredVegetables.forEach(vegetableId => {
-    if (newInventory[vegetableId] > 0) {
-      newInventory[vegetableId] -= 1;
+    if (newInventory[vegetableId] && newInventory[vegetableId]! > 0) {
+      newInventory[vegetableId] = newInventory[vegetableId]! - 1;
     }
   });
 

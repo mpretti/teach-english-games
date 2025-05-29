@@ -156,14 +156,19 @@ export const calculateFinalScore = (player: Player): number => {
 };
 
 export const getRandomSaleCard = (saleCards: SaleCard[]): SaleCard => {
-  return saleCards[Math.floor(Math.random() * saleCards.length)];
+  if (saleCards.length === 0) {
+    throw new Error('No sale cards available');
+  }
+  return saleCards[Math.floor(Math.random() * saleCards.length)]!;
 };
 
 export const shuffleArray = <T>(array: T[]): T[] => {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    const temp = shuffled[i];
+    shuffled[i] = shuffled[j]!;
+    shuffled[j] = temp!;
   }
   return shuffled;
-}; 
+};

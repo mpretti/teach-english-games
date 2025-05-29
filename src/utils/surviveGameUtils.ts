@@ -48,7 +48,7 @@ export const initializeSurviveGame = (): SurviveGameState => {
 
 export const isValidMove = (
   gameState: SurviveGameState, 
-  playerId: string, 
+  _playerId: string, 
   from: { x: number; y: number }, 
   to: { x: number; y: number }
 ): boolean => {
