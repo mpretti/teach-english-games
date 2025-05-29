@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-500 hover:bg-primary-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-gray-200 hover:bg-gray-300 text-gray-800 font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl shadow-lg p-6 border border-gray-100;
+  }
+  
+  .vegetable-card {
+    @apply bg-white rounded-lg shadow-md p-4 border-2 border-transparent hover:border-primary-300 transition-all duration-200 cursor-pointer;
+  }
+  
+  .vegetable-card.selected {
+    @apply border-primary-500 bg-primary-50;
+  }
+}
