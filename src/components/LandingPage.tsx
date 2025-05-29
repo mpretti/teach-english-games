@@ -246,6 +246,17 @@ export const LandingPage: React.FC<LandingPageProps> = ({ onGameSelect }) => {
             <h1 className="text-4xl font-bold text-gray-800 mb-2">English Learning Games</h1>
             <p className="text-xl text-gray-600">영어 학습 게임 컬렉션</p>
             <p className="text-gray-500 mt-2">Interactive games designed to help Korean students learn English through play</p>
+            
+            {/* Navigation Links */}
+            <div className="mt-6 flex justify-center gap-4">
+              <button
+                onClick={() => onGameSelect('synopses')}
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200 flex items-center gap-2"
+              >
+                📚 View Game Synopses
+              </button>
+            </div>
+            
             <div className="mt-4 bg-indigo-50 rounded-lg p-3 max-w-md mx-auto">
               <p className="text-sm text-indigo-700 font-medium">⌨️ Keyboard Shortcuts:</p>
               <p className="text-xs text-indigo-600">Press <kbd className="bg-indigo-200 px-1 rounded">1</kbd>-<kbd className="bg-indigo-200 px-1 rounded">0</kbd> to select games</p>

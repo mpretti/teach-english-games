@@ -10,6 +10,7 @@ import DutchBlitzGame from './components/DutchBlitzGame';
 import ManhattanGame from './components/ManhattanGame';
 import { TacoCatGame } from './components/TacoCatGame';
 import { NoMercyGame } from './components/NoMercyGame';
+import { GameSynopses } from './components/GameSynopses';
 
 function App() {
   const [currentGame, setCurrentGame] = useState<string | null>(null);
@@ -21,6 +22,10 @@ function App() {
   const handleBackToHome = () => {
     setCurrentGame(null);
   };
+
+  if (currentGame === 'synopses') {
+    return <GameSynopses onBack={handleBackToHome} />;
+  }
 
   if (currentGame === 'point-salad') {
     return (

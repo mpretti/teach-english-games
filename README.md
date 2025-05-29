@@ -28,6 +28,26 @@ A fun and interactive web application designed to help Korean students learn Eng
 - Expressing quantities and desires
 - Superlatives (most, least, at least)
 
+## 📚 Game Synopses
+
+The application now includes a comprehensive **Game Synopses** section featuring educational outlines for 25+ board games designed for English learning. Each synopsis includes:
+
+- **Theme and Description**: Clear explanation of the game's educational context
+- **Skills Developed**: Multiple skills practiced through gameplay
+- **Key Vocabulary**: Essential words students will learn and use
+- **Grammar Points**: Specific grammatical structures reinforced during play
+- **Key Expressions**: Common phrases students will practice repeatedly
+
+### Featured Synopses Include:
+- **Century: Spice Road** - Trading and economic vocabulary
+- **Ticket to Ride** - Geography and transportation terms
+- **Splendor** - Gem trading and achievement expressions
+- **Azul** - Artistic and pattern-building language
+- **Stone Age** - Historical and civilization vocabulary
+- And many more!
+
+Access the synopses by clicking "📚 View Game Synopses" on the main page.
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -93,11 +113,16 @@ npm run dev
 src/
 ├── components/          # React components
 │   ├── Game.tsx        # Main game orchestrator
+│   ├── GameSynopses.tsx # Game synopses viewer
+│   ├── LandingPage.tsx # Main landing page
 │   ├── VegetableCard.tsx   # Individual vegetable display
 │   ├── SaladRecipeCard.tsx # Salad recipe display
 │   └── GrammarExercise.tsx # Grammar question component
 ├── data/               # Game data and content
-│   └── gameData.ts     # Vegetables, recipes, exercises
+│   ├── gameData.ts     # Point Salad game data
+│   ├── forSaleGameData.ts # For Sale game data
+│   ├── kitesGameData.ts # Kites game data
+│   └── [other game data files]
 ├── types/              # TypeScript type definitions
 │   └── game.ts         # Game-related interfaces
 ├── utils/              # Utility functions
@@ -119,6 +144,7 @@ src/
 - **Progressive Difficulty**: Multiple rounds with increasing complexity
 - **Cultural Relevance**: Korean translations and familiar concepts
 - **Gamification**: Points, rounds, and achievement tracking
+- **Comprehensive Synopses**: Educational outlines for 25+ games
 
 ### Technical Features
 - **Type Safety**: Full TypeScript implementation
@@ -181,6 +207,23 @@ Add to `src/data/gameData.ts` in the `grammarExercises` array:
 }
 ```
 
+#### New Game Synopses
+Add to `src/components/GameSynopses.tsx` in the `synopses` array:
+```typescript
+{
+  id: 'new-game',
+  title: 'Game Title',
+  theme: 'Game theme description',
+  description: 'Detailed game description',
+  skills: ['English', 'Math', 'Strategy'],
+  vocabulary: ['word1', 'word2', 'word3'],
+  grammar: ['grammar point 1', 'grammar point 2'],
+  expressions: ['expression 1', 'expression 2'],
+  emoji: '🎲',
+  color: 'from-blue-400 to-purple-600'
+}
+```
+
 ## 🌟 Future Enhancements
 
 - **More Games**: Additional educational games beyond Point Salad
@@ -189,6 +232,7 @@ Add to `src/data/gameData.ts` in the `grammarExercises` array:
 - **Teacher Dashboard**: Tools for educators to track student progress
 - **Audio Support**: Pronunciation practice and listening exercises
 - **Difficulty Levels**: Adaptive difficulty based on student performance
+- **Printable Synopses**: PDF export functionality for game synopses
 
 ## 📝 License
 
